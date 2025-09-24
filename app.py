@@ -179,7 +179,7 @@ if page == "시급 역산":
         # ---------------------------
         # 📤 결과 출력
         # ---------------------------
-        st.subheader("📊 계산 결과 (월급 이하·가장 근접)")
+        st.subheader("📊 계산 결과 (월급 이하·가장 근접 | 최저시급 : 10,030원)")
         st.write(f"✅ 기준시급(올림): **{bw:,}원**")
         st.write(f"✅ 통상시급(올림): **{nw:,}원**")
 
@@ -234,7 +234,7 @@ if page == "월급 계산":
     car     = st.number_input("차량유지비 (고정수당)", min_value=0, step=1000, value=200_000)
     days_wk = st.number_input("주 근로일수", min_value=1, max_value=7, value=5)
 
-    gwage   = st.number_input("기준시급", min_value=0, step=10, value=10_000)
+    gwage   = st.number_input("기준시급", min_value=0, step=10, value=10_030)
 
     c3, c4 = st.columns(2)
     is_5p   = c3.checkbox("5인 이상 사업장 (연장 1.5배, 야간 0.5배)", value=True)
@@ -286,7 +286,7 @@ if page == "월급 계산":
         total = base_pay + holi_pay + overtime_pay + night_pay + meal + car
 
         # 결과 출력
-        st.subheader("📊 계산 결과 (월급 계산)")
+        st.subheader("📊 계산 결과 (월급 계산) | 최저시급 : 10,030원")
         st.write(f"✅ 기준시급: **{gwage:,}원**")
         st.write(f"✅ 통상시급(올림): **{normal_wage:,}원**")
 
@@ -324,7 +324,7 @@ if page == "월휴무 월급 계산":
     break_h   = break_min / 60.0
 
     # ── 시급/고정수당
-    gwage = st.number_input("기준시급(원)", min_value=0, step=10, value=10_000)
+    gwage = st.number_input("기준시급(원)", min_value=0, step=10, value=10_030)
     meal  = st.number_input("식대 (고정수당)", min_value=0, step=1000, value=100_000)
     car   = st.number_input("차량유지비 (고정수당)", min_value=0, step=1000, value=200_000)
 
@@ -393,7 +393,7 @@ if page == "월휴무 월급 계산":
         total = base_pay + holi_pay + overtime_pay + night_pay + meal + car
 
         # ── 결과 출력
-        st.subheader("📊 계산 결과")
+        st.subheader("📊 계산 결과 | 최저시급 : 10,030원")
         st.write(f"✅ 기준시급(입력): **{gwage:,}원**")
         st.write(f"✅ 통상시급(올림): **{normal_wage:,}원**")
 
